@@ -4,8 +4,6 @@ import java.util.Scanner;
 
 public class countsTheSumOfTheNumberInTheString {
 
-
-
     public static void sumOfNumber() {
         Scanner scanner = new Scanner(System.in);
         int sum = 0;
