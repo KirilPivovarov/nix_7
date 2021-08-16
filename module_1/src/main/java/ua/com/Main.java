@@ -64,7 +64,7 @@ public class Main {
                      startProgram = false;
                     break;
                 default:
-                   System.out.println("Incorect input");
+                   System.out.println("Incorrect input");
             }
         }
     }
