@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class HorseMove {
 
-    public static void Horserun() {
+    public static void HorseRun() {
         Scanner in = new Scanner(System.in);
         System.out.print("Enter the start horse position <x y>: ");
         int startX = in.nextInt();

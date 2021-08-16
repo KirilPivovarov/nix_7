@@ -41,7 +41,7 @@ public class Main {
                             CountUniqueSymbol.run();
                             break;
                         case 2:
-                            HorseMove.Horserun();
+                            HorseMove.HorseRun();
                             break;
                         case 3:
                             TriangleSquare.triangleArea();
