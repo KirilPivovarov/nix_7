@@ -8,20 +8,13 @@ import java.util.UUID;
 
 public class CoursesDB {
 
-    private static int SIZE = 10;
+    private static final int SIZE = 10;
 
-    private Course[] courseDB = new Course[SIZE];
-    private Students[] listStudents = new Students[SIZE];
+    private static Course[] courseDB = new Course[SIZE];
     private int indexForCourse = 0;
-    private int indexForStudent = 0;
-
-    Students students = new Students();
-    Course course = new Course();
-    StudentsDB studentsDB = new StudentsDB();
-
     private static CoursesDB instance;
 
-    protected CoursesDB() {}
+    private CoursesDB() {}
 
     public static CoursesDB getInstance() {
         if (instance == null) {
@@ -41,24 +34,32 @@ public class CoursesDB {
     }
 
     public void updateCourse(Course course) {
-        Course current = findCoursesById(course.getId());
-        current.setNameCourse(course.getNameCourse());
+        int indexCourse = getIndexById(course.getId());
+        if(indexCourse < 0){
+            System.out.println("exception");
+        }else {
+            courseDB[indexCourse].setNameCourse(course.getNameCourse());
+        }
 
     }
 
     public void deleteCourse(String id) {
         int indexStudent = getIndexById(id);
-        courseDB[indexStudent] = null;
-        rebuildArray(courseDB.length);
+        if(indexStudent < 0){
+            System.out.println("exception");
+        }else {
+            courseDB[indexStudent] = null;
+            rebuildArray(courseDB.length);
+        }
     }
 
-    public Course findCoursesById(String id) {
-        for(int i = 0; i < courseDB.length; i++) {
-            if (courseDB[i].getId().equals(id)){
-                return courseDB[i];
-            }
+    public static Course findCoursesById(String id) {
+        int indexCourse = instance.getIndexById(id);
+        if(indexCourse == -1){
+            return instance.createExceptionCourse(id);
+        }else {
+            return courseDB[indexCourse];
         }
-        return null;
 
     }
 
@@ -72,22 +73,22 @@ public class CoursesDB {
         return course;
     }
 
-    public void addStudentInList(){
-        listStudents = course.getStudentsInCourses();
-        if (listStudents[listStudents.length - 1] != null) {
-            increaseArrayForStudent();
+    public Students[] addStudentInList(Course course, String studentId){
+        if (course.getStudentsInCourses()[course.getStudentsInCourses().length - 1] != null) {
+            increaseArrayForStudent(course);
         }
-        listStudents[indexForStudent] = studentsDB.findStudentsById(students.getId());
-        indexForStudent++;
-        course.setStudentsInCourses(listStudents);
+        course.getStudentsInCourses()[course.getIndexForStudent()] = StudentsDB.findStudentsById(studentId);
+        course.setIndexForStudent(course.getIndexForStudent() + 1);
+        return course.getStudentsInCourses();
     }
 
-    public void deleteStudentInList(){
-        listStudents = course.getStudentsInCourses();
-        int indexForCourse = getIndexById(students.getId());
-        listStudents[indexForCourse] = null;
-        rebuildArrayForStudent(listStudents.length);
-       course.setStudentsInCourses(listStudents);
+    public Students[] deleteStudentInList(Course course, String studentId){
+        int indexForCourse = getIndexById(studentId);
+        if(indexForCourse >= 0) {
+            course.getStudentsInCourses()[indexForCourse] = null;
+            rebuildArrayForStudent(course.getStudentsInCourses().length,course);
+        }
+        return course.getStudentsInCourses();
     }
 
     public Students[] findListStudentByCourseID(String id){
@@ -98,9 +99,11 @@ public class CoursesDB {
 
     private String generateId() {
         String id = UUID.randomUUID().toString();
-        for (int i = 0; i < courseDB.length; i++) {
-            if (courseDB[i].getId().equals(id)) {
-                return generateId();
+        for (Course course : courseDB) {
+            if (course != null) {
+                if (course.getId().equals(id)) {
+                    return generateId();
+                }
             }
         }
         return id;
@@ -114,9 +117,9 @@ public class CoursesDB {
     private void rebuildArray(int newLength) {
         Course[] newCourseDb = new Course[newLength];
         int indexCount = 0;
-        for (int i = 0; i < courseDB.length; i++) {
-            if (courseDB[i] != null) {
-                newCourseDb[indexCount] = courseDB[i];
+        for (Course course : courseDB) {
+            if (course != null) {
+                newCourseDb[indexCount] = course;
                 indexCount++;
             }
         }
@@ -126,29 +129,34 @@ public class CoursesDB {
 
     private int getIndexById(String id) {
         for (int i = 0; i < courseDB.length; i++) {
-            if (courseDB[i] != null && courseDB[i].getId() == id) {
+            if (courseDB[i] != null && courseDB[i].getId().equals(id)) {
                 return i;
             }
         }
         return -1;
     }
 
-    private void increaseArrayForStudent() {
-        int newLength = listStudents.length + (listStudents.length >> 1);
-        rebuildArray(newLength);
+    private void increaseArrayForStudent(Course course) {
+        int newLength = course.getStudentsInCourses().length + (course.getStudentsInCourses().length >> 1);
+        rebuildArrayForStudent(newLength, course);
     }
 
-    private void rebuildArrayForStudent(int newLength) {
+    private void rebuildArrayForStudent(int newLength, Course course) {
         Students[] newListStudent = new Students[newLength];
         int indexCount = 0;
-        for (int i = 0; i < listStudents.length; i++) {
-            if (listStudents[i] != null) {
-                listStudents[indexCount] = listStudents[i];
-                indexCount++;
-            }
+        for (Students student : course.getStudentsInCourses()) {
+            newListStudent[indexCount] = student;
+            indexCount++;
         }
-        listStudents = newListStudent;
-        indexForStudent = indexCount;
+        course.setStudentsInCourses(newListStudent);
+        course.setIndexForStudent(indexCount);
     }
 
+    private Course createExceptionCourse(String id){
+       Course foundCourse = new Course();
+        foundCourse.setNameCourse("Course with this id  not found" );
+        foundCourse.setId(id);
+        return foundCourse;
+    }
 }
+

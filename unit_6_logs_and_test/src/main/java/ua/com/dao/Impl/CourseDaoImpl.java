@@ -24,7 +24,7 @@ public class CourseDaoImpl implements CourseDao {
 
     @Override
     public Course findCourseById(String id){
-       return CoursesDB.getInstance().findCoursesById(id);
+       return CoursesDB.findCoursesById(id);
     }
 
     @Override
@@ -33,13 +33,13 @@ public class CourseDaoImpl implements CourseDao {
     }
 
     @Override
-    public void addStudentInList(){
-        CoursesDB.getInstance().addStudentInList();
+    public Students[] addStudentInList(Course course, String studentId){
+         return CoursesDB.getInstance().addStudentInList(course, studentId);
     }
 
     @Override
-    public void deleteStudentInList(){
-        CoursesDB.getInstance().deleteStudentInList();
+    public Students[] deleteStudentInList(Course course, String studentId){
+       return CoursesDB.getInstance().deleteStudentInList(course, studentId);
     }
 
     @Override

@@ -5,8 +5,6 @@ import ua.com.db.StudentsDB;
 import ua.com.entity.Course;
 import ua.com.entity.Students;
 
-import java.util.Arrays;
-
 public class StudentDaoImpl implements StudentDao {
 
     @Override
@@ -26,7 +24,7 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public Students findStudentsById(String id) {
-       return StudentsDB.getInstance().findStudentsById(id);
+       return StudentsDB.findStudentsById(id);
     }
 
     @Override
@@ -35,13 +33,13 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    public void addCourseInList(){
-       StudentsDB.getInstance().addCourseInList();
+    public Course[] addCourseInList(Students student, String CourseId){
+      return StudentsDB.getInstance().addCourseInList(student, CourseId);
     }
 
     @Override
-    public void deleteCourseInList(){
-       StudentsDB.getInstance().deleteCourseInList();
+    public Course[] deleteCourseInList(Students student, String CourseId){
+      return StudentsDB.getInstance().deleteCourseInList(student, CourseId);
     }
 
     @Override

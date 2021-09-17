@@ -1,0 +1,45 @@
+08:54:41.485 [main] INFO  info - create new course: java
+08:54:47.039 [main] INFO  info - create new course: php
+08:55:17.795 [main] INFO  info - create new student: kirill pivovarob
+09:35:39.978 [main] INFO  info - create new course: java
+09:35:46.604 [main] INFO  info - create new course: php
+09:35:58.855 [main] INFO  info - create new course: cplus
+09:36:31.213 [main] INFO  info - create new student: kirill pivovarov
+09:37:24.074 [main] INFO  info - update student: kirill pivovarov
+09:45:44.514 [main] INFO  info - create new course: java
+09:45:50.415 [main] INFO  info - create new course: php
+09:46:02.607 [main] INFO  info - create new student: kiri4 kdfad
+09:46:54.905 [main] INFO  info - find student with Id: 6a39aba4-03d0-4e46-9b44-2b3bf8d6ebe6
+09:46:54.906 [main] INFO  info - update student: kirill pivovarov
+09:48:13.128 [main] INFO  info - find student with Id: 7d1776d4-a329-4602-b2dd-bbec868e9aeb
+09:48:13.128 [main] INFO  info - update course: php
+09:51:41.373 [main] INFO  info - create new student: kirill piv
+09:51:55.526 [main] INFO  info - create new student: sasha krot
+09:52:08.522 [main] INFO  info - create new course: java
+09:59:12.480 [main] INFO  info - create new student: kirill gsg
+09:59:18.164 [main] INFO  info - create new student: dgdgd sgs
+09:59:34.904 [main] INFO  info - create new course: php
+10:04:36.856 [main] INFO  info - create new student: hdh dhdfh
+10:04:42.242 [main] INFO  info - create new student: dfh dhdh
+10:04:54.792 [main] INFO  info - create new course: php
+10:05:41.800 [main] INFO  info - find student with Id: 4a3b2d87-badd-489d-ae85-69c6c176efa6
+10:05:41.801 [main] INFO  info - update course: php
+10:06:44.037 [main] INFO  info - create new course: java
+10:20:13.900 [main] INFO  info - create new course: java
+10:20:31.839 [main] INFO  info - create new student: kirill piv
+10:21:16.845 [main] INFO  info - find student with Id: 44f3b27d-9477-4cce-9601-f367233742f8
+10:33:02.907 [main] INFO  info - create new course: java
+10:33:21.139 [main] INFO  info - create new student: kirill piv
+10:33:57.947 [main] INFO  info - find student with Id: 75a5fe33-f8b0-48bf-82cc-5800f1c0b5a8
+10:37:49.905 [main] INFO  info - create new course: php
+10:38:05.141 [main] INFO  info - create new student: kiril piv
+10:40:02.173 [main] INFO  info - find student with Id: 30b76f88-b267-4554-bbaa-13068b05a601
+10:40:02.173 [main] INFO  info - update student: kirill piv
+10:41:05.126 [main] INFO  info - find student with Id: 30b76f88-b267-4554-bbaa-13068b05a601
+10:43:01.349 [main] INFO  info - find student with Id: 30b76f88-b267-4554-bbaa-13068b05a601
+10:43:55.330 [main] INFO  info - find student with Id: 1198c1a0-e105-4ce5-8db7-8d58f6ceb014
+10:43:55.330 [main] INFO  info - update course: php
+10:45:16.654 [main] INFO  info - create new course: php
+10:45:26.029 [main] INFO  info - create new student: kirill piv
+10:46:09.373 [main] INFO  info - find student with Id: acf965e1-020c-46f3-8699-a777fcb86b6c
+10:52:50.169 [main] INFO  info - find student with Id: kjk

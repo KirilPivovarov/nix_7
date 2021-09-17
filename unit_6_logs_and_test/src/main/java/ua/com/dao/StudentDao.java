@@ -16,9 +16,9 @@ public interface StudentDao {
 
      Students[] findAllStudents();
 
-     void addCourseInList();
+     Course[] addCourseInList(Students student, String CoursesId);
 
-     void deleteCourseInList();
+     Course[] deleteCourseInList(Students student, String CoursesId);
 
      Course[] findListCoursesByStudentID(String id);
 

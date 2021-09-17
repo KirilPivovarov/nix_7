@@ -1,5 +1,6 @@
 package ua.com.dao;
 
+import ua.com.controllers.CourseController;
 import ua.com.entity.Course;
 import ua.com.entity.Students;
 
@@ -15,9 +16,9 @@ public interface CourseDao {
 
     Course[] findAllCourse();
 
-    void addStudentInList();
+    Students[] addStudentInList(Course course, String studentId);
 
-    void deleteStudentInList();
+    Students[] deleteStudentInList(Course course, String studentId);
 
     Students[] findListStudentByCourseID(String id);
 }

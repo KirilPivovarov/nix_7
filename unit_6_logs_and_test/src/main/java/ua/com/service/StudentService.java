@@ -1,64 +1,23 @@
 package ua.com.service;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import ua.com.dao.StudentDao;
+import ua.com.entity.Course;
 import ua.com.entity.Students;
 
-import java.util.regex.Pattern;
+public interface StudentService {
 
-public class StudentService {
+     void createStudent(Students students);
 
-    private static final Logger LOGGER_INFO = LoggerFactory.getLogger("info");
-    private static final Logger LOGGER_WARN = LoggerFactory.getLogger("warn");
+     void updateStudent(Students students);
 
-    private static StudentDao studentDao;
+     void deleteStudent(String id);
 
-    public void createStudent(Students students){
-        LOGGER_INFO.info("create new student: " + students.getFirstName() + " "+ students.getLastName());
-        if (!checkName(students.getFirstName()) && !checkName(students.getLastName()))
-            LOGGER_WARN.warn("invalid name: " + students.getFirstName() + " " + students.getLastName());
-        else studentDao.createStudents(students);
-    }
+     Students findStudentByID(String id);
 
-    public void updateStudent(Students students){
-        LOGGER_INFO.info("update student: " + students.getFirstName() + " "+ students.getLastName());
-        studentDao.updateStudents(students);
-    }
+     Students[] findAllStudents();
 
-    public void deleteStudent(String id){
-        LOGGER_WARN.warn("Student was removed. ID: " + id);
-        studentDao.deleteStudents(id);
-    }
+     Course[] addCourseInList(Students student, String CoursesId);
 
-    public Students findStudentByID(String id) {
-        try {
-            LOGGER_INFO.info("find student with Id: " + id);
-            return studentDao.findStudentsById(id);
-        }catch (NullPointerException e){
-            LOGGER_WARN.warn("Student with ID: " + id + " not found");
-            return createExceptionStudent(id);
-        }
-    }
+     Course[] deleteCourseInList(Students student, String CoursesId);
 
-    public Students[] findAllStudents(){
-        return studentDao.findAllStudents();
-    }
-
-    public void addCourseInList(){
-
-    }
-
-    public boolean checkName(String name) {
-        return Pattern.matches("^[\\p{L} .'-]*$", name);
-    }
-
-    private Students createExceptionStudent(String id){
-        Students foundStudent = new Students();
-        foundStudent.setFirstName("Exception");
-        foundStudent.setLastName("Student with this id not found");
-        foundStudent.setId(id);
-        return foundStudent;
-    }
-
+     Course[] findListCoursesByStudentID(String id);
 }

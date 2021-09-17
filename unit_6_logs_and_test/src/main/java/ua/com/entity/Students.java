@@ -8,11 +8,17 @@ import lombok.Setter;
 @Setter
 public class Students {
 
-    private String id;
+    private static final int SIZE = 10;
+
     private String firstName;
     private String lastName;
-    private Course[] studentsCourses;
+    private String id;
+    private Course[] studentsCourses = new Course[SIZE];
+    private int indexForCourses = 0;
 
 
-
+    @Override
+    public String toString() {
+        return "student with the first name : " + firstName + " and the last name : " + lastName + " has an ID " + id;
+    }
 }

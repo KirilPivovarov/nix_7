@@ -17,9 +17,13 @@
         <maven.jar.plugin.version>3.2.0</maven.jar.plugin.version>
         <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
         <lombok.version>1.18.20</lombok.version>
+        <logback.version>1.2.3</logback.version>
         <slf4j.version>1.7.2</slf4j.version>
         <junit.version>4.13.2</junit.version>
         <junit.jupiter.version>5.4.0</junit.jupiter.version>
+        <logs.folder>unit_6_logs_and_test/logs</logs.folder>
+        <logs.test.folder>test_logs</logs.test.folder>
+        <logs.life.folder>life_logs</logs.life.folder>
     </properties>
 
     <profiles>
@@ -79,7 +83,17 @@
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -91,6 +105,11 @@
             </resource>
         </resources>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.plugin.version}</version>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
