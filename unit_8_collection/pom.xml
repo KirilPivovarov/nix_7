@@ -5,9 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>unit_7_exception</artifactId>
+    <artifactId>unit_8_collection</artifactId>
     <version>1.0-SNAPSHOT</version>
-
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
@@ -21,7 +20,7 @@
         <slf4j.version>1.7.2</slf4j.version>
         <junit.version>4.13.2</junit.version>
         <junit.jupiter.version>5.4.0</junit.jupiter.version>
-        <logs.folder>unit_7_exception/logs</logs.folder>
+        <logs.folder>unit_6_logs_and_test/logs</logs.folder>
         <logs.test.folder>test_logs</logs.test.folder>
         <logs.life.folder>life_logs</logs.life.folder>
     </properties>
@@ -156,5 +155,6 @@
             </plugin>
         </plugins>
     </build>
+
 
 </project>
