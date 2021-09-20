@@ -20,7 +20,7 @@
         <slf4j.version>1.7.2</slf4j.version>
         <junit.version>4.13.2</junit.version>
         <junit.jupiter.version>5.4.0</junit.jupiter.version>
-        <logs.folder>unit_8_collection/logs</logs.folder>
+        <logs.folder>logs</logs.folder>
         <logs.test.folder>test_logs</logs.test.folder>
         <logs.life.folder>life_logs</logs.life.folder>
     </properties>
