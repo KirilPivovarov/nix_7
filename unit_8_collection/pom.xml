@@ -20,7 +20,7 @@
         <slf4j.version>1.7.2</slf4j.version>
         <junit.version>4.13.2</junit.version>
         <junit.jupiter.version>5.4.0</junit.jupiter.version>
-        <logs.folder>unit_6_logs_and_test/logs</logs.folder>
+        <logs.folder>unit_8_collection/logs</logs.folder>
         <logs.test.folder>test_logs</logs.test.folder>
         <logs.life.folder>life_logs</logs.life.folder>
     </properties>
@@ -97,7 +97,7 @@
 
 
     <build>
-        <finalName>exception</finalName>
+        <finalName>collection</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -146,7 +146,7 @@
                         <configuration>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>ua.com.Main</mainClass>
+                                    <mainClass>ua.com.mainCollection</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
