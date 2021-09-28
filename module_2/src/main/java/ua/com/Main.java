@@ -9,7 +9,7 @@ import  java.util.Scanner;
 
 public class Main {
 
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final Scanner scan = new Scanner(System.in);
 
     public static void main(String[] args) {
         ControllerData controllerData = new ControllerData();
@@ -24,7 +24,7 @@ public class Main {
                     "3. Find the cheapest way between towns\n" +
                     "For exit enter any another symbol");
 
-            String index = scanner.nextLine();
+            String index = scan.nextLine();
             switch (index) {
                 case "1":
                     controllerData.run();
